@@ -1,3 +1,4 @@
+$ErrorActionPreference = 'Stop'
 $InstallDir = Join-Path $HOME ".safeEnv\bin"
 $ExePath = Join-Path $InstallDir "safeEnv.exe"
 $RepoUrl = "https://github.com/skee21/safeEnv/releases/latest/download/safeEnv-windows-amd64.exe"

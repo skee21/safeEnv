@@ -48,7 +48,7 @@ jobs:
 
       - name: Rename binary Windows
         if: matrix.os == 'windows-latest'
-        run: Rename-Item -Path "target\${{ matrix.target }}\release\${{ matrix.binary_name }}" -NewName "${{ matrix.asset_name }}"
+        run: Move-Item -Path "target\${{ matrix.target }}\release\${{ matrix.binary_name }}" -Destination "${{ matrix.asset_name }}"
 
       - name: Upload Release Asset
         uses: softprops/action-gh-release@v2
