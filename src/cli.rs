@@ -14,6 +14,9 @@ pub enum Commands {
     AddUser {
         public_key: String,
     },
+    Track {
+        filename: String,
+    },
     Encrypt {
         #[arg(long)]
         stream: bool,

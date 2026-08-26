@@ -7,6 +7,9 @@ pub struct VaultConfig {
 }
 
 pub fn identity_file_path() -> anyhow::Result<PathBuf> {
+    if let Ok(dir) = std::env::var("SAFEENV_CONFIG_DIR") {
+        return Ok(PathBuf::from(dir).join("identity.txt"));
+    }
     let proj_dirs = directories::ProjectDirs::from("", "", "safeEnv")
         .ok_or_else(|| anyhow::anyhow!("Could not determine config directory"))?;
     Ok(proj_dirs.config_dir().join("identity.txt"))
